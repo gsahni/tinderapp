@@ -11,7 +11,7 @@ import java.util.Scanner;
 import models.Location;
 import models.User;
 
-public class TinderApp {
+public class App {
 	public static void main(String[] args) {
 
 		User u1 = createUser(20, "Gourav", 'M', new Location(10, 50),
@@ -33,14 +33,13 @@ public class TinderApp {
 				new ArrayList<String>(Arrays.asList("porn")));
 
 		List<User> users = new ArrayList<>(Arrays.asList(u1, u2, u3, u4, u5, u6));
-
-		
-		
-		
+	
 		
 		System.out.println("Users present in the system");
-
 		User.printUsers(users);
+		
+		TinderInterface newChance = new TinderClass();
+		
 
 		System.out.println("Enter your user Id");
 
@@ -57,27 +56,9 @@ public class TinderApp {
 				break;
 			}
 		}
-
-		Collections.sort(users, new GetOrdered(currentUser));
-
-		List<User> crushes = new ArrayList<>();
-		for (User user : users) {
-			System.out.println(user.getName());
-			@SuppressWarnings("resource")
-			Scanner reader = new Scanner(System.in);
-			System.out.println("Enter 1 for right swipe, 0 for left swipe");
-			int userInput = reader.nextInt();
-			if (userInput == 1) {
-				crushes.add(user);
-			}
-		}
-		currentUser.setMyCrushes(crushes);
-		System.out.println("Printing likes of " + currentUser.getName());
-
-		for (User crush : currentUser.getMyCrushes()) {
-			System.out.println(crush.getName());
-		}
-
+		newChance.getMeCards(currentUser, users);
+		
+		newChance.showMyCrushes(currentUser);
 	}
 
 	private static User createUser(int age, String name, char sex, Location location, List<String> interest) {
