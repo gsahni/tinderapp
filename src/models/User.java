@@ -86,4 +86,12 @@ public class User {
 		}
 	}
 
+	public static User getUserFromId(List<User> users, int userId) {
+		for (User user : users) {
+			if (user.id == userId) {
+				return user;
+			}
+		}
+		return null;
+	}
 }

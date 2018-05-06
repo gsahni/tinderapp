@@ -11,7 +11,7 @@ import java.util.Scanner;
 import models.Location;
 import models.User;
 
-public class App {
+public class DatingApp {
 	public static void main(String[] args) {
 
 		User u1 = createUser(20, "Gourav", 'M', new Location(10, 50),
@@ -38,7 +38,7 @@ public class App {
 		System.out.println("Users present in the system");
 		User.printUsers(users);
 		
-		TinderInterface newChance = new TinderClass();
+		TinderInterface newChance = new TinderService();
 		
 
 		System.out.println("Enter your user Id");
@@ -47,17 +47,9 @@ public class App {
 
 		int userId = reader1.nextInt();
 
-		User currentUser = null;
+		User currentUser = User.getUserFromId(users, userId);
 
-		for (User user : users) {
-			if (user.getId() == userId) {
-				users.remove(user);
-				currentUser = user;
-				break;
-			}
-		}
-		newChance.getMeCards(currentUser, users);
-		
+		newChance.getMeCards(currentUser, users);		
 		newChance.showMyCrushes(currentUser);
 	}
 

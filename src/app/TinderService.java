@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 import models.User;
 
-public class TinderClass implements TinderInterface {
+public class TinderService implements TinderInterface {
 
-	public TinderClass()  {
+	public TinderService()  {
 	}
 
 	@Override
@@ -33,7 +33,6 @@ public class TinderClass implements TinderInterface {
 			}
 		}
 		user.setMyCrushes(crushes);
-		
 	}
 
 	@Override
