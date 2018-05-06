@@ -1,6 +1,4 @@
-package tinderapp;
-
-//make a separate package for modal
+package models;
 
 public class Location {
 
@@ -28,9 +26,7 @@ public class Location {
 		this.yCord = yCord;
 	}
 
-	// directly retuen the distance instead of asssiging to a variable
 	public static double findDistance(Location l1, Location l2) {
-		double distance = (float) Math.sqrt((Math.pow(l1.xCord - l2.xCord, 2) + Math.pow(l1.yCord - l2.yCord, 2)));
-		return distance;
+		return (double) Math.sqrt((Math.pow(l1.xCord - l2.xCord, 2) + Math.pow(l1.yCord - l2.yCord, 2)));
 	}
 }

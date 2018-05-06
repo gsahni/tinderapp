@@ -1,6 +1,9 @@
-package tinderapp;
+package app;
 
 import java.util.Comparator;
+
+import models.Location;
+import models.User;
 
 public class GetOrdered implements Comparator<User> {
 
